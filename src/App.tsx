@@ -29,38 +29,30 @@ function App() {
     const paper = new joint.dia.Paper({
       el: canvas.current,
       model: graph,
-      width: 600,
-      height: 400,
       gridSize: 1,
-      // model: graph,
-      // background: {
-      //   color: '#F8F9FA',
-      // },
-      // frozen: true,
-      // async: true,
-      // sorting: joint.dia.Paper.sorting.APPROX,
-      // cellViewNamespace: joint.shapes
+      background: {
+        color: '#F8F9FA',
+      },
+      frozen: true,
+      async: true,
+      sorting: joint.dia.Paper.sorting.APPROX,
+      cellViewNamespace: joint.shapes
     });
 
-    // Добавление элементов в граф
     graph.addCells(elements);
 
     paper.unfreeze();
 
-    console.log(canvas)
-    // paper.render()
-
     return () => {
+      // TODO: ReactJS strict mode cause hook to be executed twice so
+      // following cleanup code doesn't work properly
       // paper.remove();
     }
   }, []);
 
   return (
     <>
-      {/* <div>WHYYYYYYYYY?</div> */}
-      {/* <div className="canvas" ref={canvas} /> */}
       <div className="canvas" ref={canvas} />
-
     </>
   );
 }
